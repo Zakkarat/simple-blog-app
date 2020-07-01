@@ -1,0 +1,1 @@
+export type AxResponse = Object[] | null | undefined;

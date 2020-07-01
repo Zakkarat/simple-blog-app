@@ -1,14 +1,12 @@
-import Link from "next/link";
 import Layout from "../src/components/Layout";
+import Posts from "../src/components/Posts";
+import { MDBContainer } from "mdbreact";
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
+  <Layout>
+    <MDBContainer className="mt-3 d-flex justify-content-center">
+      <Posts></Posts>
+    </MDBContainer>
   </Layout>
 );
 

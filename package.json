@@ -8,6 +8,8 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@types/styled-components": "^5.1.0",
+    "axios": "^0.19.2",
     "mdbreact": "^4.27.0",
     "next": "latest",
     "next-redux-wrapper": "^6.0.2",
