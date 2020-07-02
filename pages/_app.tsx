@@ -3,17 +3,11 @@ import { AppInitialProps, AppProps } from "next/app";
 import { createStore, Store } from "redux";
 import { Provider, RootStateOrAny } from "react-redux";
 import { devToolsEnhancer } from "redux-devtools-extension";
-import reducer from "../src/Redux/reducer";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import Head from "next/head";
+import wrapper from "../src/Redux/reducer";
 
-type Props = { store: Store } & AppInitialProps & AppProps;
-
-const makeStore = (initialState: RootStateOrAny) => {
-  return createStore(reducer, initialState, devToolsEnhancer({}));
-};
-
-const MyApp = ({ Component, pageProps, store }: Props) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -29,11 +23,9 @@ const MyApp = ({ Component, pageProps, store }: Props) => {
           rel="stylesheet"
         ></link>
       </Head>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <Component {...pageProps} />
     </>
   );
 };
 
-export default withRedux(makeStore)(MyApp);
+export default wrapper.withRedux(MyApp);
