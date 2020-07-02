@@ -4,7 +4,7 @@ import { MDBContainer } from "mdbreact";
 
 const IndexPage = () => (
   <Layout>
-    <MDBContainer className="mt-3 d-flex justify-content-center">
+    <MDBContainer className="d-flex justify-content-center">
       <Posts></Posts>
     </MDBContainer>
   </Layout>

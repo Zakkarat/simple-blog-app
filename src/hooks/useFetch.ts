@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { Result } from '../interfaces/fetchResult'
+import { Result, FetchFunction } from '../interfaces/fetchResult'
 
-const useFetch = (url : string) => {
+const useFetch : FetchFunction = (url : string) => {
   const [fetchResult, setFetchResult] = useState<Result>({
     error: null,
   });

@@ -1,9 +1,13 @@
-import {AxResponse} from './Response'
+export interface FetchData {
+    title: string,
+    body: string,
+    id: number
+}
 
 export interface Result {
     status?: number,
     error?: null,
-    data?: Object  
+    data?: FetchData[]  
 }
 
-export type FetchFunction = (url:string) => AxResponse
+export type FetchFunction = (url:string) => FetchData[]
