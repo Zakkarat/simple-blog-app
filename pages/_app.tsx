@@ -1,8 +1,4 @@
-import withRedux from "next-redux-wrapper";
-import { AppInitialProps, AppProps } from "next/app";
-import { createStore, Store } from "redux";
-import { Provider, RootStateOrAny } from "react-redux";
-import { devToolsEnhancer } from "redux-devtools-extension";
+import { AppProps } from "next/app";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import Head from "next/head";
 import wrapper from "../src/Redux/reducer";

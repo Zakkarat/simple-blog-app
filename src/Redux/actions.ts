@@ -1,14 +1,14 @@
-import { actionFunc } from "../interfaces/redux";
+import { FetchData } from "../interfaces/fetchResult";
 
 export const GET_POSTS = "GET_POSTS";
 export const CREATE_POST = "CREATE POST";
 
-export const getPosts : actionFunc = (posts) => {
-    type: GET_POSTS
+export const getPosts = (posts : FetchData[]) => ({
+    type: GET_POSTS,
     payload: {posts}
-}
+})
 
-export const createPost : actionFunc = (post) => {
-    type: GET_POSTS
+export const createPost = (post : FetchData) => ({
+    type: CREATE_POST,
     payload: {post}
-}
+})

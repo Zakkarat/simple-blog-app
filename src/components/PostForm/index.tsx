@@ -1,19 +1,22 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { MDBCol } from "mdbreact";
-import { SubmitPost } from "../../interfaces/post";
 import axios from "axios";
+import { connect } from "react-redux";
+import { createPost } from "../../Redux/actions";
+import { AnyAction } from "redux";
 
-const PostForm = () => {
+const PostForm = ({ createPost }: AnyAction) => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
-  const onSubmit = async (data: SubmitPost) => {
+  const onSubmit: SubmitHandler<Record<string, any>> = async (data) => {
     await axios
       .post("https://simple-blog-api.crew.red/posts", {
         ...data,
       })
       .then((response) => {
+        createPost(response.data);
         if (response.status === 201) {
           router.replace("/");
         }
@@ -55,4 +58,8 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+const mapDispatchToProps = {
+  createPost,
+};
+
+export default connect(null, mapDispatchToProps)(PostForm);
