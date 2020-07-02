@@ -1,8 +1,10 @@
+import {Comment} from '../interfaces/comments'
+
 export interface FetchData {
     title: string,
     body: string,
     id: number,
-    comments?: string[]
+    comments?: Comment[]
 }
 export interface Result {
     status?: number,
