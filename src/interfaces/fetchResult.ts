@@ -1,13 +1,13 @@
 export interface FetchData {
     title: string,
     body: string,
-    id: number
+    id: number,
+    comments?: string[]
 }
-
 export interface Result {
     status?: number,
     error?: null,
-    data?: FetchData[]  
+    data?: FetchData[] | FetchData
 }
 
-export type FetchFunction = (url:string) => FetchData[]
+export type FetchFunction = (url:string) => any

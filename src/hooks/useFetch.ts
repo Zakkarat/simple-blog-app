@@ -23,7 +23,7 @@ const useFetch : FetchFunction = (url : string) => {
       .then(() => {
         setFetchResult(newFetchResult);
       });
-  }, []);
+  }, [url]);
   
   return fetchResult.data || fetchResult.error;
 };
