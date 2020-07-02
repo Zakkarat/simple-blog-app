@@ -1,7 +1,6 @@
 import { GET_POSTS, CREATE_POST } from "./actions"
 import {createStore, AnyAction, applyMiddleware} from 'redux';
 import {MakeStore, createWrapper} from 'next-redux-wrapper';
-import { devToolsEnhancer } from "redux-devtools-extension";
 import thunk from "redux-thunk"
  
 const posts = (state : any = [], action : AnyAction) => {
@@ -15,6 +14,6 @@ const posts = (state : any = [], action : AnyAction) => {
     }
 }
 
-const makeStore: MakeStore = () => createStore(posts, devToolsEnhancer({}) || applyMiddleware(thunk));
+const makeStore: MakeStore = () => createStore(posts, applyMiddleware(thunk));
 
 export default createWrapper(makeStore, {debug: true});

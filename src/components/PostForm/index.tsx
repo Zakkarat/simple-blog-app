@@ -38,7 +38,6 @@ const PostForm = ({ createPost }: AnyAction) => {
           type="text"
           id="textInput"
           className="form-control mb-4"
-          placeholder="Text input"
           name="title"
           ref={register({ required: true })}
         />
@@ -46,7 +45,6 @@ const PostForm = ({ createPost }: AnyAction) => {
         <textarea
           id="textarea"
           className="form-control mb-4"
-          placeholder="Textarea"
           name="body"
           ref={register({ required: true })}
         ></textarea>
