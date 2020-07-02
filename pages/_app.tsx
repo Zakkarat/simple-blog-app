@@ -1,16 +1,19 @@
-// import withRedux from "next-redux-wrapper";
-import { AppProps } from "next/app";
-// import { createStore } from "redux";
-// import { Provider } from "react-redux";
-// import reducer from "../redux/reducers";
+import withRedux from "next-redux-wrapper";
+import { AppInitialProps, AppProps } from "next/app";
+import { createStore, Store } from "redux";
+import { Provider, RootStateOrAny } from "react-redux";
+import { devToolsEnhancer } from "redux-devtools-extension";
+import reducer from "../src/Redux/reducer";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import Head from "next/head";
 
-// const makeStore = (initialState, options) => {
-//   return createStore(reducer, initialState);
-// };
+type Props = { store: Store } & AppInitialProps & AppProps;
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const makeStore = (initialState: RootStateOrAny) => {
+  return createStore(reducer, initialState, devToolsEnhancer({}));
+};
+
+const MyApp = ({ Component, pageProps, store }: Props) => {
   return (
     <>
       <Head>
@@ -26,11 +29,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           rel="stylesheet"
         ></link>
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 };
 
-export default MyApp;
-
-// export default withRedux(makeStore)(MyApp);
+export default withRedux(makeStore)(MyApp);

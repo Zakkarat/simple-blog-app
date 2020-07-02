@@ -8,7 +8,6 @@ import Comments from "./Comments";
 const Post: React.FC<Props> = ({ postId }) => {
   const url = `https://simple-blog-api.crew.red/posts/${postId}?_embed=comments`;
   const post: FetchData = useFetch(url);
-  console.log(post);
   return (
     <MDBCol sm="12" className="mt-3">
       {post && (
