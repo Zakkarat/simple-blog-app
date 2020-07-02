@@ -11,7 +11,7 @@ import { FetchData } from "../../interfaces/fetchResult";
 
 const Post: React.FC<FetchData> = ({ title, body, id }) => {
   return (
-    <MDBCol sm="12" className="mt-3">
+    <MDBCol sm="5" className="mt-3">
       <MDBCard wide>
         <MDBCardBody>
           <MDBCardTitle>{title}</MDBCardTitle>

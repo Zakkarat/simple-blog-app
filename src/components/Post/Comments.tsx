@@ -6,7 +6,7 @@ const Comments: React.FC<Props> = ({ comments }) => {
     <div>
       <h3>Comments:</h3>
       {comments.map((elem) => (
-        <MDBCard className="mt-3">
+        <MDBCard key={elem.id} className="mt-3">
           <MDBCardBody>{elem.body}</MDBCardBody>
         </MDBCard>
       ))}

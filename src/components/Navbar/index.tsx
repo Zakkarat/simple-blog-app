@@ -27,12 +27,12 @@ const NavbarPage = () => {
         <LinkStyled>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <Link href="#">
+              <Link href="/">
                 <a className="link-box">Posts</a>
               </Link>
             </MDBNavItem>
             <MDBNavItem>
-              <Link href="#">
+              <Link href="/posts/new">
                 <a className="link-box">Create New Post</a>
               </Link>
             </MDBNavItem>
